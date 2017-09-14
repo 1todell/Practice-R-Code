@@ -13,3 +13,18 @@ setDT(newdataset)
 EXAMPLE:
 lfshhaj17 <- as.data.frame(lfshh17)
 setDT(lfshhaj17)
+
+#For recoding data into new + existing variables (1) (EASIER WITH CONTINUOUS DATA)
+dataset$newvariable <- ifelse(dataset$existingvariable #decide value#, #give new value#, #give else value#)
+EXAMPLE: lfshh17$workage <- ifelse(lfshh17$age >15 & lfshh17$age <65, 1, 0)
+
+
+#For recoding data into new + existing variables (2) (EASIER WITH CATEGORICAL DATA)
+dataset$newvariable <- dataset$existingvariable
+levels(dataset$newvariable) <- c("ValueLabelOne", "ValueLabelTwo",.. etc)
+CHECK = levels(dataset$newvariable)
+
+EXAMPLE: 
+lfshhaj17$region <- lfshhaj17$govtor
+levels(lfshhaj17$region) <- c("North East", "North East", "North West", "North West", "North West", "Yorkshire & Humberside", "Yorkshire & Humberside", "Yorkshire & Humberside", "East Midlands", "West Midlands", "West Midlands", "Eastern", "London", "London", "South East", "South West", "Wales", "Scotland", "Scotland", "Northern Ireland")
+
